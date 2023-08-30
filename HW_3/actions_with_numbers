@@ -8,10 +8,7 @@ a != 0 and b != 0 and c != 0 and print("Нет нулевых значений!!
 
 #task2 - Вывести первое ненулевое значение. Если введены все нули -
 # вывести "Введены все нули!" (цикл не использовать) без if - использовать лень
-a > 0 and (b == 0 or b > 0) and (c == 0 or b > 0) and print(a)\
-or a == 0 and b > 0 and (c == 0 or c > 0) and print(b)\
-or a == 0 and b == 0 and c > 0 and print(c)\
-or (a == 0 and b == 0 and c == 0 and print("Введены все нули!"))
+print(a or b or c or print("Введены все нули!"))
 
 #task3 - Если первое значение больше, чем сумма второго
 # и третьего вывести a - b - c
@@ -20,7 +17,7 @@ sum1 = b + c
 if a > sum1:
     result = a - b - c
     print("a - b - c = ", result)
-    
+
 #task4 - Если первое значение меньше, чем сумма второго
 # и третьего вывести b + c - a
 if a < sum1:
