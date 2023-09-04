@@ -15,5 +15,5 @@ def check_login(func):
 @check_login
 def not_acsess():
     if login not in admin_users:
-        return "Доступ запрещен"
+        print("Доступ запрещен")
     
