@@ -1,4 +1,5 @@
 import random
+import os
 
 questions = [
 "Где в стихотворении 'Узник' А. С. Пушкина сидит вскормлённый в неволе орёл молодой?",
@@ -17,8 +18,8 @@ answers = [
         (False, "3 - Под деревом"), (False, "4 - Под скалой")]},
     { 2000: [(False, "1 - Няня"), (True, "2 - Домоправительница"),\
         (False, "3 - Воспитательница"), (False, "4 - Мучительница")]},
-    { 4000: [(True, "1 - Гусиное перо"), (False, "2 - Перо ворона"),\
-        (False, "3 - Павлинье перо"), (False, "4 - Перо страуса")]},
+    { 4000: [(False, "1 - Павлинье перо"), (False, "2 - Перо ворона"),\
+        (True, "3 - Гусиное перо"), (False, "4 - Перо страуса")]},
     { 6000: [(True, "1 - Испания"), (False, "2 - Португалия"),\
         (False, "3 - Франция"), (False, "4 - Великобритания")]},
     { 8000: [(True, "1 - Цент"), (False, "2 - Шиллинг"),\
@@ -38,7 +39,6 @@ hints = ["Помощь зала", "50/50", "Звонок другу"]
 sum = 0
 
 not_correct_elements = []
-correct_elements = 0
 
 for question in questions:
     print()
@@ -62,17 +62,35 @@ for question in questions:
                 correct_answer = values[1]    
     not_correct_element = random.choice(not_correct_elements)         
     a = str(input())   
-    if correct_answer.find(a) != -1:    
-        print("Вы правильно ответили на вопрос, приступим к следующему вопросу!")
+    if a == hints[0]:
+        print("Вы выбрали Помощь зала")
+        print(correct_answer, not_correct_element)
+        a = str(input())
+        if a == correct_answer.find(a) != -1:
+            print("Вы правильно ответили на вопрос:")
+        else:
+            print("Вы не правильно ответили на вопрос")
+    elif a == hints[1]:
+        print("Вы выбрали 50/50")
+        print(correct_answer, not_correct_element)
+        a = str(input())
+        if a == correct_answer.find(a) != -1:
+            print("Вы правильно ответили на вопрос:")
+        else:
+            print("Вы не правильно ответили на вопрос")
+    elif a == hints[2]:
+        print("Вы выбрали Звонок другу")
+        print(correct_answer, not_correct_element)
+        a = str(input())
+        if a == correct_answer.find(a) != -1:
+            print("Вы правильно ответили на вопрос:")
+        else:
+            print("Вы не правильно ответили на вопрос")
+    elif correct_answer.find(a) != -1: 
+        os.system('cls')
         print()
         sum += cost
-        print(sum)
+        print("Вы правильно ответили на вопрос, Ваш выигрыш", sum)
     else:
         print("Вы неправильно ответили на вопрос. Вы проиграли")            
         break
-    if a == hints[0]:
-        print("Вы выбрали Помощь зала")
-    elif a == hints[1]:
-        print("Вы выбрали 50/50")
-    elif a == hints[2]:
-        print("Вы выбрали Звонок другу")
